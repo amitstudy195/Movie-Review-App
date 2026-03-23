@@ -121,6 +121,13 @@ function App() {
   const openTrailer = (movieId: number) => setTrailerMovieId(movieId)
   const closeTrailer = () => setTrailerMovieId(null)
 
+  let gridTitle = "Discover Movies"
+  if (searchQuery) {
+    gridTitle = `Search Results for "${searchQuery}"`
+  } else if (selectedGenre || selectedYear || selectedRating) {
+    gridTitle = "Filtered Movies"
+  }
+
   return (
    
 
@@ -152,6 +159,7 @@ function App() {
 
 
       <MoviesGrid
+      title={gridTitle}
         movies={movies}
         genres={genres}
         loading={loading}

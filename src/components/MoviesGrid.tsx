@@ -12,6 +12,7 @@ interface Movie {
 }
 
 interface MoviesGridProps {
+  title: string
   movies: Movie[]
   genres: {[key: number]: string}
   loading: boolean
@@ -22,6 +23,7 @@ interface MoviesGridProps {
 }
 
 const MoviesGrid: React.FC<MoviesGridProps> = ({ 
+  title,
   movies, 
   genres, 
   loading, 
@@ -67,7 +69,7 @@ const MoviesGrid: React.FC<MoviesGridProps> = ({
           <span className="text-lg">🎦</span>
         </div>
         <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-          Discover Movies
+          {title}
         </h2>
       </div>
 
